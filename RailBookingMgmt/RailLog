@@ -1,0 +1,46 @@
+2018-11-15 14:58:40.288  INFO 8488 --- [restartedMain] c.e.p.R.RailBookingApplication           : Starting RailBookingApplication on DESKTOP-BQM6RRS with PID 8488 (C:\Users\Pavan\Documents\new\RailBookingMgmt\bin\main started by Pavan in C:\Users\Pavan\Documents\new\RailBookingMgmt)
+2018-11-15 14:58:40.289  INFO 8488 --- [restartedMain] c.e.p.R.RailBookingApplication           : No active profile set, falling back to default profiles: default
+2018-11-15 14:58:40.784  INFO 8488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2018-11-15 14:58:40.827  INFO 8488 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 43ms. Found 2 repository interfaces.
+2018-11-15 14:58:40.890  INFO 8488 --- [restartedMain] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration$$EnhancerBySpringCGLIB$$7a571f41] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2018-11-15 14:58:41.231  INFO 8488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2018-11-15 14:58:41.237  INFO 8488 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2018-11-15 14:58:41.238  INFO 8488 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/9.0.12
+2018-11-15 14:58:41.319  INFO 8488 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2018-11-15 14:58:41.320  INFO 8488 --- [restartedMain] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 1028 ms
+2018-11-15 14:58:41.335  INFO 8488 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet dispatcherServlet mapped to [/]
+2018-11-15 14:58:41.335  INFO 8488 --- [restartedMain] o.s.b.w.servlet.ServletRegistrationBean  : Servlet webServlet mapped to [/h2-console/*]
+2018-11-15 14:58:41.336  INFO 8488 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2018-11-15 14:58:41.336  INFO 8488 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2018-11-15 14:58:41.336  INFO 8488 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'formContentFilter' to: [/*]
+2018-11-15 14:58:41.336  INFO 8488 --- [restartedMain] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2018-11-15 14:58:41.377  INFO 8488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2018-11-15 14:58:41.379  INFO 8488 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2018-11-15 14:58:41.393  INFO 8488 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2018-11-15 14:58:41.411  INFO 8488 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2018-11-15 14:58:41.470  INFO 8488 --- [restartedMain] o.h.t.schema.internal.SchemaCreatorImpl  : HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@78c4c56d'
+2018-11-15 14:58:41.470  INFO 8488 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2018-11-15 14:58:41.492  INFO 8488 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2018-11-15 14:58:41.632  INFO 8488 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2018-11-15 14:58:41.640  WARN 8488 --- [restartedMain] aWebConfiguration$JpaWebMvcConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2018-11-15 14:58:41.738  INFO 8488 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2018-11-15 14:58:41.739  INFO 8488 --- [restartedMain] c.e.p.R.RailBookingApplication           : Started RailBookingApplication in 1.533 seconds (JVM running for 317.115)
+2018-11-15 14:58:41.741  INFO 8488 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2018-11-15 14:58:48.748  INFO 8488 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2018-11-15 14:58:48.810  INFO 8488 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2018-11-15 14:58:48.815  INFO 8488 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 5 ms
+2018-11-15 14:58:48.820  INFO 8488 --- [http-nio-8080-exec-1] c.e.p.R.service.PassengerServiceImpl     : searching passengers travel details for PNR: PASS1800102
+2018-11-15 14:58:57.548  INFO 8488 --- [http-nio-8080-exec-3] c.e.p.R.service.PassengerServiceImpl     : searching passengers travel details for PNR: PASS1800101
+2018-11-15 14:59:23.020  WARN 8488 --- [http-nio-8080-exec-5] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+2018-11-15 14:59:31.686  INFO 8488 --- [http-nio-8080-exec-7] c.e.p.R.service.PassengerServiceImpl     : Reservation confirmed for :R Rehman pavan
+2018-11-15 14:59:31.695  INFO 8488 --- [http-nio-8080-exec-7] c.e.p.R.service.PassengerServiceImpl     : passenger's PNR no =PASS1800101
+2018-11-15 14:59:31.704  INFO 8488 --- [http-nio-8080-exec-7] c.e.p.R.controller.RailController        : passenger reservation confirmed with PNR NO. PASS1800101
+2018-11-15 14:59:52.660  INFO 8488 --- [http-nio-8080-exec-9] c.e.p.R.service.PassengerServiceImpl     : searching passengers travel details for PNR: PASS1800101
+2018-11-15 15:00:44.942  INFO 8488 --- [Thread-10] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2018-11-15 15:00:44.948  INFO 8488 --- [Thread-10] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2018-11-15 15:00:44.954  INFO 8488 --- [Thread-10] .SchemaDropperImpl$DelayedDropActionImpl : HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+2018-11-15 15:00:44.959  INFO 8488 --- [Thread-10] o.s.b.f.support.DisposableBeanAdapter    : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-197]
+2018-11-15 15:00:44.965  INFO 8488 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2018-11-15 15:00:44.968  INFO 8488 --- [Thread-10] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
