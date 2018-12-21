@@ -10,6 +10,8 @@ public interface TrainService {
 	
 	public Trains addTrain(Trains train); 
 	
+	public Trains updTrain(Trains train); 
+	
 	public List<Trains> viewAll(); 
 	
 	public Optional<Trains> findTrain(int trainNo); 

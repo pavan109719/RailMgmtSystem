@@ -28,6 +28,7 @@ public class TrainServiceImpl implements TrainService {
 	@Override
 	public Optional<Trains> findTrain(int trainNo) {
 		return (Optional<Trains>)trainRepo.findById(trainNo);
+		
 	}
 
 	@Override
@@ -43,13 +44,19 @@ public class TrainServiceImpl implements TrainService {
 		return(ArrayList<Trains>) trainRepo.saveAll(trains);
 	}
 
+	@Override
+	public Trains updTrain(Trains train) {
+		return trainRepo.save(train);
+	}
+
+
 //	@Override
 //	public Optional<Trains> updateTrainSeat(int trainNo) {
-//		Optional<Trains> tra = findTrain(trainNo);
-//		tra.
-//		int seats = seats-1;
-//		trainRepo.save(tra);
-//		return tra;
+//			Optional<Trains> train = trainRepo.findById(trainNo);
+//			trainRepo.deleteById(trainNo);
+//			trainRepo.save(train);
+//			
+//		return null;
 //	}
 
 }

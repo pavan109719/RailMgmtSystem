@@ -8,7 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -19,6 +18,7 @@ public class Trains {
 	@Column(name="TRAIN_NO")
 	private int Id;
 	
+	
 	@Column(name="SEATS_AVAILABLE",nullable=true)
 	private int seats;
 	
@@ -28,8 +28,8 @@ public class Trains {
 	@Column(name="DESTINANTION_STATION",nullable=true)
 	private String destination;
 	
-	@OneToMany(targetEntity=Passenger.class,cascade=CascadeType.ALL)
-	@JoinColumn(name="TRAIN_NO",referencedColumnName="TRAIN_NO")
+	@OneToMany(targetEntity=Passenger.class,cascade=CascadeType.DETACH)
+//	@JoinColumn(name="TRAIN_NO",referencedColumnName="TRAIN_NO")
 	private List<Passenger> passenger = new ArrayList<>();
 	
 	

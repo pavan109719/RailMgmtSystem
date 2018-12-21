@@ -8,4 +8,7 @@ import com.example.pavan.RailBooking.model.Trains;
 @Repository("trainRepo")
 public interface RailRepository extends CrudRepository<Trains, Integer> {
 
+
+	
+
 }

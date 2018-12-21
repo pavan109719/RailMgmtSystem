@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,21 +29,35 @@ public class RailController {
 
 	@Autowired
 	private TrainServiceImpl trainService;
-	
 
 	@Autowired
 	private PassengerServiceImpl passService;
 
 	@PostMapping(path = "/booking")
-	public void booking(@RequestBody Passenger pass) {
-		passService.reservation(pass);
-//		Trains train = pass.getTrain();
-//		int trainNo = train.getId();
-//		int seats = train.getSeats();
-//		train.setSeats(seats-1);
-//		trainService.addTrain(train);
-		
-		log.info("passenger reservation confirmed with PNR NO. " + pass.getPnr());
+	public ResponseEntity<Passenger> booking(@RequestBody Passenger pass) throws Exception {
+
+		int trainNo = pass.getTrain().getId();
+		String dest = pass.getTrain().getDestination();
+		String source = pass.getTrain().getSource();
+
+		Optional<Trains> t = searchTrain(trainNo);
+		Trains tr = new Trains();
+		tr.setId(trainNo);
+		tr.setDestination(dest);
+		tr.setSource(source);
+		System.out.println(t);
+		int availableSeat = t.get().getSeats();
+		System.out.println("total seats :" + availableSeat);
+		if (availableSeat > 0) {
+			passService.reservation(pass);
+			tr.setSeats(--availableSeat);
+			updateTrain(tr, trainNo);
+		}
+		else {
+			log.info("No Seats Available ",HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS );
+		}
+
+		return new ResponseEntity<Passenger>(HttpStatus.CREATED);
 	}
 
 	@GetMapping(path = "/booking/{pnr}")
@@ -64,15 +79,28 @@ public class RailController {
 	public Optional<Trains> searchTrain(@PathVariable int trainId) {
 		return trainService.findTrain(trainId);
 	}
-	
-	@DeleteMapping(path="/rail/{trainId}")
+
+	@DeleteMapping(path = "/rail/{trainId}")
 	public Optional<Trains> deleteTrain(@PathVariable int trainId) {
 		return trainService.removeTrain(trainId);
 	}
-	@PostMapping(value="/std")
+
+	@PostMapping(path = "/rails")
 	public ResponseEntity<ArrayList<Trains>> add(@RequestBody ArrayList<Trains> trains) throws Exception {
-		return new ResponseEntity<ArrayList<Trains>>(trainService.addAllTrains(trains),HttpStatus.CREATED);
-		
+		return new ResponseEntity<ArrayList<Trains>>(trainService.addAllTrains(trains), HttpStatus.CREATED);
 	}
-	
+
+	@PutMapping(path = "/rail")
+	public Optional<Trains> updateTrain(@RequestBody Trains train, @PathVariable int trainId) {
+		trainService.addTrain(train);
+		return null;
+
+	}
+
+	@PutMapping(path = "/passenger")
+	public Optional<Trains> updatePassenger(@RequestBody Passenger pass, @PathVariable int trainId) {
+		passService.reservation(pass);
+		return null;
+
+	}
 }

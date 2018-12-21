@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.pavan.RailBooking.model.Passenger;
-import com.example.pavan.RailBooking.model.Trains;
 import com.example.pavan.RailBooking.repository.BookingRepository;
 
 @Service("passService")
