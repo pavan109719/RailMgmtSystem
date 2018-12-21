@@ -9,5 +9,6 @@ public interface PassengerService {
 	public Passenger reservation(Passenger pass); 
 	
 	public Optional<Passenger> viewStatus(String pnr);
-
+	
+	public Optional<Passenger> Cancellation(String pnr);
 }

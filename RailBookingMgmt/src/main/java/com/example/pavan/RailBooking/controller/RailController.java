@@ -1,8 +1,10 @@
 package com.example.pavan.RailBooking.controller;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Queue;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,6 +26,7 @@ import com.example.pavan.RailBooking.service.TrainServiceImpl;
 
 @RestController
 public class RailController {
+	static 	Queue<Passenger> waitList = new LinkedList<>();
 
 	private static final Logger log = LoggerFactory.getLogger(RailController.class);
 
@@ -54,7 +57,12 @@ public class RailController {
 			updateTrain(tr, trainNo);
 		}
 		else {
-			log.info("No Seats Available ",HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS );
+			log.info("No Seats Available, you have been put on waitlist ",HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS );
+		
+			if(waitList.size()<25) {
+			waitList.add(pass);
+			log.info("waitlist : "+waitList);
+			}		
 		}
 
 		return new ResponseEntity<Passenger>(HttpStatus.CREATED);
@@ -63,6 +71,29 @@ public class RailController {
 	@GetMapping(path = "/booking/{pnr}")
 	public Optional<Passenger> checkStatus(@PathVariable String pnr) {
 		return passService.viewStatus(pnr);
+	}
+	
+	@DeleteMapping(path = "/booking/{pnr}")
+	public Optional<Passenger> cancelBooking(@PathVariable String pnr) {
+		Optional<Passenger> pass =checkStatus(pnr);
+		Trains tr = pass.get().getTrain();
+		int trainNo =tr.getId();
+		int seatsAvailable = tr.getSeats();
+		tr.setSeats(++seatsAvailable);
+		updateTrain(tr, trainNo);
+		passService.Cancellation(pnr);
+		Passenger pa =waitList.peek();
+		waitList.remove(pa);
+		log.info("Booking cancelled successfully");
+		try {
+			log.info("Waitlist updated");
+			booking(pa);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
+		
 	}
 
 	@PostMapping(path = "/rail")

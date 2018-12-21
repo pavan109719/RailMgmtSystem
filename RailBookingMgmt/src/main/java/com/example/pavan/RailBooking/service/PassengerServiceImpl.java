@@ -39,4 +39,11 @@ public class PassengerServiceImpl implements PassengerService {
 		
 	}
 
+	@Override
+	public Optional<Passenger> Cancellation(String pnr) {
+		Optional<Passenger> pass = bookingRepo.findById(pnr);
+		bookingRepo.deleteById(pnr);;
+		return pass;
+	}
+
 }
